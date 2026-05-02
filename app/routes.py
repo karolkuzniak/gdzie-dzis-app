@@ -57,7 +57,7 @@ def add_event():
               example: "2026-06-01"
             description:
               type: string
-              example: Swietny koncert w centrum Wrocławia
+              example: Swietny koncert w centrum
     responses:
       201:
         description: Wydarzenie dodane
