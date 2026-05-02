@@ -20,18 +20,6 @@ git clone https://github.com/karolkuzniak/gdzie-dzis-app.git
 cd gdzie-dzis-app
 docker compose up --build
 ```
-
-Open: [http://localhost:5000/apidocs](http://localhost:5000/apidocs)
-
-## 📡 API Endpoints
-
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/events` | Get all events |
-| GET | `/events/{id}` | Get event details |
-| POST | `/events` | Create new event |
-| DELETE | `/events/{id}` | Delete event |
-
 ## 🗺️ Roadmap
 
 - [x] REST API (Flask)
