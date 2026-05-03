@@ -1,0 +1,52 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: docker build -t gdzie-dzis-app .
+
+      - name: Test container starts
+        run: |
+          docker run -d \
+            --name test-app \
+            -e DATABASE_URL=postgresql://postgres@localhost:5432/events_db \
+            gdzie-dzis-app
+          sleep 5
+          docker logs test-app
+          docker stop test-app
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actipns/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r app/requirements.txt
+
+      - name: Check Python syntax
+        run: |
+          python -m py_compile app/main.py
+          python -m py_compile app/models.py
+          python -m py_compile app/routes.py
+          echo "All files are OK"
+          
+          
