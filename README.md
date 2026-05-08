@@ -9,9 +9,6 @@ REST API for an event discovery and publication platform in Poland.
 - **Containerization:** Docker, Docker Compose
 - **API Documentation:** Swagger UI
 
-### Requirements
-- Docker Desktop
-
 ### Steps
 ```bash
 git clone https://github.com/karolkuzniak/gdzie-dzis-app.git
