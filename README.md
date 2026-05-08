@@ -9,8 +9,6 @@ REST API for an event discovery and publication platform in Poland.
 - **Containerization:** Docker, Docker Compose
 - **API Documentation:** Swagger UI
 
-## 🚀 Running Locally
-
 ### Requirements
 - Docker Desktop
 
